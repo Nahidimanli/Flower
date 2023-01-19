@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+
+
 {% block content %}
     <!-- slider section -->
     <section class=" slider_section position-relative">
@@ -29,9 +31,25 @@
                     </h1>
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                      the
-                      industry's
-                      standard dummy text ever since
+
+                   </p>
+                    <div>
+                      <a href="">Buy Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="col-lg-6 col-md-8">
+                  <div class="detail_box">
+                    <h2>
+                      Welcome
+                    </h2>
+                    <h1>
+                      Ag ciceyim
+                    </h1>
+                    <p>
+                      Xoşbəxt anların ömür boyu xatırlanması üçün tərtib və dizayn işlərini peşəkarlara həvalə edin.
                     </p>
                     <div>
                       <a href="">Buy Now</a>
@@ -46,34 +64,10 @@
                       Welcome
                     </h2>
                     <h1>
-                      Flowers shop
+                      Ag ciceyim
                     </h1>
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                      the
-                      industry's
-                      standard dummy text ever since
-                    </p>
-                    <div>
-                      <a href="">Buy Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="col-lg-6 col-md-8">
-                  <div class="detail_box">
-                    <h2>
-                      Welcome
-                    </h2>
-                    <h1>
-                      Flowers shop
-                    </h1>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                      the
-                      industry's
-                      standard dummy text ever since
+                      Üstü bəzək - altı təzək.
                     </p>
                     <div>
                       <a href="">Buy Now</a>
@@ -107,7 +101,7 @@
       <div class="row">
         <div class="col-md-6 col-xl-7">
           <div class="img-box">
-            <img src="images/about-img.png" alt="" />
+            <img src="{% static 'images/about-img.png' %}" alt="" />
           </div>
         </div>
         <div class="col-md-5 col-xl-5">
@@ -179,36 +173,36 @@
           <div class="box-1-container">
             <div class="b-1">
               <div class="img-box">
-                <img src="images/g-1.jpg" alt="">
+                <img src="{% static 'images/g-1.jpg' %}" alt="">
               </div>
               <div class="img-box">
-                <img src="images/g-4.jpg" alt="">
+                <img src="{% static 'images/g-4.jpg' %}" alt="">
               </div>
             </div>
             <div class="b-2">
               <div class="img-box">
-                <img src="images/g-2.jpg" alt="">
+                <img src="{% static 'images/g-2.jpg' %}" alt="">
               </div>
               <div class="img-box">
-                <img src="images/g-5.jpg" alt="">
+                <img src="{% static 'images/g-5.jpg' %}" alt="">
               </div>
             </div>
           </div>
           <div class="b-3">
             <div class="img-box">
-              <img src="images/g-7.jpg" alt="">
+              <img src="{% static 'images/g-7.jpg' %}" alt="">
             </div>
           </div>
         </div>
         <div class="box-2">
           <div class="img-box">
-            <img src="images/g-3.jpg" alt="">
+            <img src="{% static 'images/g-3.jpg' %}" alt="">
           </div>
           <div class="img-box">
-            <img src="images/g-6.jpg" alt="">
+            <img src="{% static 'images/g-6.jpg' %}" alt="">
           </div>
           <div class="img-box flex-grow-1">
-            <img src="images/g-8.jpg" alt="">
+            <img src="{% static 'images/g-8.jpg' %}" alt="">
           </div>
         </div>
       </div>
@@ -237,10 +231,9 @@
                 <img src="{% static 'images/client-1.png' %}">
               </div>
               <h5>
-                nomil du
+                Azer Mammedov
               </h5>
-              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                classical Latin literature from 45 BC, making it over </p>
+              <p>Sen ol bomba gulleri var. Mamoy klyanus</p>
             </div>
           </div>
         </div>
@@ -251,10 +244,9 @@
                 <img src="{% static 'images/client-2.png' %}">
               </div>
               <h5>
-                zabih jo
+                Jalal Sabitov
               </h5>
-              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                classical Latin literature from 45 BC, making it over </p>
+              <p>Gizin xosuna gelmedi,cirpdi buketi basima. Basiviza deysin sizin guller.</p>
             </div>
           </div>
         </div>
@@ -312,7 +304,7 @@
               <input type="email" placeholder="Email" />
             </div>
             <div>
-              <input type="text" placeholder="Pone Number" />
+              <input type="text" placeholder="Phone Number" />
             </div>
             <div>
               <input type="text" class="message-box" placeholder="Message" />
@@ -394,36 +386,36 @@
               <div>
                 <a href="">
                   <div class="insta-box b-1">
-                    <img src="images/insta-1.png" alt="">
+                    <img src="{% static 'images/insta-1.png' %}" alt="">
                   </div>
                 </a>
                 <a href="">
                   <div class="insta-box b-2">
-                    <img src="images/insta-2.png" alt="">
+                    <img src="{% static 'images/insta-2.png' %}" alt="">
                   </div>
                 </a>
               </div>
               <div>
                 <a href="">
                   <div class="insta-box b-3">
-                    <img src="images/insta-3.png" alt="">
+                    <img src="{% static 'images/insta-3.png' %}" alt="">
                   </div>
                 </a>
                 <a href="">
                   <div class="insta-box b-4">
-                    <img src="images/insta-4.png" alt="">
+                    <img src="{% static 'images/insta-4.png' %}" alt="">
                   </div>
                 </a>
               </div>
               <div>
                 <a href="">
                   <div class="insta-box b-3">
-                    <img src="images/insta-5.png" alt="">
+                    <img src="{% static 'images/insta-5.png' %}" alt="">
                   </div>
                 </a>
                 <a href="">
                   <div class="insta-box b-4">
-                    <img src="images/insta-6.png" alt="">
+                    <img src="{% static 'images/insta-6.png' %}" alt="">
                   </div>
                 </a>
               </div>
@@ -436,20 +428,20 @@
               Contact
             </h5>
             <div>
-              <img src="images/location-white.png" alt="">
+              <img src="{% static 'images/location-white.png' %}" alt="">
               <p>
                 It is a long
                 fact that a reader
               </p>
             </div>
             <div>
-              <img src="images/telephone-white.png" alt="">
+              <img src="{% static 'images/telephone-white.png' %}" alt="">
               <p>
                 +01 1234567890
               </p>
             </div>
             <div>
-              <img src="images/envelope-white.png" alt="">
+              <img src="{% static 'images/envelope-white.png' %}" alt="">
               <p>
                 demo@gmail.com
               </p>
@@ -459,6 +451,7 @@
       </div>
     </div>
   </section>
+  
 
   <!-- end info_section -->
 
