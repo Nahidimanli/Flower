@@ -1,14 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Blog, Setting
+from .models import Blog, Setting, Advertisement
 
 # Create your views here.
 
 def home(request):
     my_setting = Setting.objects.first()
+    advars = Advertisement.objects.all()
     context = {
-        'settings': my_setting  
-    }
+        'settings': my_setting,  
+        'advars' : advars 
+
+     }
  
     return render(request, 'index.html', context)
 

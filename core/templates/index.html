@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
-{% load static %}
+ {% extends 'base.html' %}
+ {% load static custom_tags %}
 
 
-{% block content %}
+ {% block content %}
     <!-- slider section -->
     <section class=" slider_section position-relative">
       <div class="slider_number-container ">
@@ -87,6 +87,16 @@
           </div>
         </div>
       </div>
+       {% get advertisement_all as advars %}
+       {% for i in advars %}
+       <div class="card" style="width: 18rem;">
+        <img src="{{ i.image.url }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.title }}</h5>
+          <p class="card-text">{{ i.description }}</p>
+       </div>
+        {% endfor %}
+      
 
     </section>
     <!-- end slider section -->
