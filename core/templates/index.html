@@ -87,8 +87,10 @@
           </div>
         </div>
       </div>
-       {% get advertisement_all as advars %}
+       
+       
        {% for i in advars %}
+       {% get_advertisement_all as advars %}
        <div class="card" style="width: 18rem;">
         <img src="{{ i.image.url }}" class="card-img-top">
         <div class="card-body">

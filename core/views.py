@@ -11,7 +11,7 @@ def home(request):
         'settings': my_setting,  
         'advars' : advars 
 
-     }
+    }
  
     return render(request, 'index.html', context)
 
