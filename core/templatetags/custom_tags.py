@@ -1,5 +1,5 @@
 from django.template import Library
-from core.models import Contact, Advertisement, Gallery
+from core.models import Contact, Advertisement
 
 
 register = Library()
@@ -16,8 +16,4 @@ def get_advertisement_all():
 @register.simple_tag
 def get_advertisement_count():
     return Advertisement.objects.count()
-
-@register.simple_tag
-def get_gallery_all():
-    return Gallery.objects.all()
 

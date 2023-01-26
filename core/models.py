@@ -37,24 +37,20 @@ class Setting(AbstractBaseModel):
 
 
     def __str__(self):
-     return "My site setting"
-        
+     return "Settings"
+
 
 class ContactUs(AbstractBaseModel):
     name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=20)
     Message = models.TextField(max_length=100)
 
-    class Meta:
-        verbose_name_plural = "Contact Us"
-        verbose_name = "ContactUs"
+    def __str__(self):
+     return "Conact_us"
+        
 
     
-    def __str__(self):
-     return "ContactUs"
-
-
 class Gallery(AbstractBaseModel):
     flow1 = models.ImageField(upload_to= 'media/ Galery')
     flow2 = models.ImageField(upload_to= 'media/ Galery')

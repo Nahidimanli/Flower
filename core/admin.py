@@ -4,13 +4,14 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import (
-    Contact, Setting,  ContactUs, Gallery, About, Why, Customer, Blog, Advertisement
+    Contact, Setting, Gallery, About, Why, Customer, Blog, Advertisement, ContactUs
+
 )
 
 
 #admin.site.register(Contact)
 admin.site.register(Setting)
-admin.site.register( ContactUs)
+admin.site.register(ContactUs)
 admin.site.register(Gallery)
 admin.site.register(About)
 admin.site.register(Why)
