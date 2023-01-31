@@ -1,15 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Blog, Setting, Advertisement,About,Gallery
+from core.forms import ContactUsForm
 
 # Create your views here.
 
 def home(request):
     my_setting = Setting.objects.all()
     advars = Advertisement.objects.all()
+    
     context = {
         'settings': my_setting,  
-        'advars' : advars 
+        'advars' : advars,
+        
 
     }
  
@@ -27,7 +30,17 @@ def contact(request):
 
 
 def ContactUs(request):
-    return render (request, 'contact.html')
+    contactus_form = ContactUsForm()
+    if request.method =='POST':
+        contactus_form ==ContactUsForm(request.POST)
+    if contactus_form.is_valid():
+        contactus_form.save()
+        contactus_form = ContactUsForm()
+
+    context = {
+        'contactus_form' : contactus_form
+    }
+    return render (request, 'contact.html', context)
 
 
 def gallery(request):

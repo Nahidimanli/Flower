@@ -23,7 +23,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form action="">
+          <form method="POST">
+            {% csrf_token %}
+            {{ contactus_form }}
             <div>
               <input type="text" placeholder="Name" />
             </div>
@@ -37,7 +39,7 @@
               <input type="text" class="message-box" placeholder="Message" />
             </div>
             <div class="d-flex  mt-4 ">
-              <button>
+              <button type="submit">
                 SEND
               </button>
             </div>
