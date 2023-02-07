@@ -28,13 +28,8 @@ class Setting(AbstractBaseModel):
     logo = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    insta1 = models.CharField(max_length=100)
-    insta2 = models.CharField(max_length=100)
-    insta3 = models.CharField(max_length=100)
-    insta4 = models.CharField(max_length=100)
-    insta5= models.CharField(max_length=100)
-    insta6 = models.CharField(max_length=100)
-
+    insta1 = models.ImageField(upload_to= 'media/ Setting')
+   
 
     def __str__(self):
      return "Settings"
@@ -44,24 +39,13 @@ class ContactUs(AbstractBaseModel):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=20)
-    Message = models.TextField(max_length=100)
+    message = models.TextField(max_length=100)
     is_check = models.BooleanField(default=False)
 
-    def __str__(self):
-     return "Conact_us"
-        
 
     
 class Gallery(AbstractBaseModel):
     flow1 = models.ImageField(upload_to= 'media/ Galery')
-    flow2 = models.ImageField(upload_to= 'media/ Galery')
-    flow3 = models.ImageField(upload_to= 'media/ Galery')
-    flow4 = models.ImageField(upload_to= 'media/ Galery')
-    flow5 = models.ImageField(upload_to= 'media/ Galery')
-    flow6 = models.ImageField(upload_to= 'media/ Galery')
-    flow7 = models.ImageField(upload_to= 'media/ Galery')
-    flow8 = models.ImageField(upload_to= 'media/ Galery')
-
 
     def __str__(self):
      return "Gallery"

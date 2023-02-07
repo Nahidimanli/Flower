@@ -4,11 +4,6 @@
 
 {% block content %}
 
-
-
-
-
-
   <!-- contact section -->
 
   <section class="contact_section layout_padding">
@@ -23,21 +18,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form method="POST">
+          <form method="post">
             {% csrf_token %}
-            {{ contactus_form }}
-            <div>
-              <input type="text" placeholder="Name" />
-            </div>
-            <div>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div>
-              <input type="text" placeholder="Phone Number" />
-            </div>
-            <div>
-              <input type="text" class="message-box" placeholder="Message" />
-            </div>
+            {{ contactus_form.as_p }}
+            
+        
             <div class="d-flex  mt-4 ">
               <button type="submit">
                 SEND

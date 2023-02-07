@@ -2,7 +2,7 @@
 # Register your models here.
 from django.contrib import admin
 
-# Register your models here.
+
 from .models import (
     Contact, Setting, Gallery, About, Why, Customer, Blog, Advertisement, ContactUs
 
@@ -18,6 +18,7 @@ admin.site.register(Why)
 admin.site.register(Customer)
 admin.site.register(Blog)
 admin.site.register(Advertisement)
+
 
 
 
