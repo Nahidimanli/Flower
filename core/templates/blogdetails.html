@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<div class="card" style="width: 400px;">
+  <img src="{{ blogs.image.url }}" class="card-img-top" style="width: 400px;height: 400px;">
+  <div class="card-body">
+   <h5 class="card-title">{{ blogs.title }}</h5>
+   <p class="card-text">{{ blogs.description }}</p>
+   <p></p>
+  </div>
+</div>
+
+
+
+{% endblock %}

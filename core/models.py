@@ -83,6 +83,7 @@ class Blog(AbstractBaseModel):
     description = models.TextField()
     image = models.ImageField(upload_to= 'media/blog')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, editable=False)
 
     def __str__(self):
        return self.title

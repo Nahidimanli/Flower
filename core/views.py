@@ -54,6 +54,16 @@ def my_contact(request):
 #      }
 #      return render(request, 'gallery.html',context)
 
+def blog(request, id):
+    blogs = Blog.objects.get(id=id)
+
+    context = {
+        'blogs': blogs
+    }
+
+    return render(request, "blogdetails.html", context)
+
+
 
 def blogs (request):
     blogs = Blog.objects.all()
@@ -82,3 +92,14 @@ class SettingListView(ListView):
     def get_queryset(self):
         data = Setting.objects.all()
         return data
+
+
+
+# class BlogListView(ListView):
+#     model = Blog
+#     template_name = 'blogs.html'
+#     context_object_name = 'blogs'
+
+#     def get_queryset(self):
+#         data = Blog.objects.all()
+#         return data

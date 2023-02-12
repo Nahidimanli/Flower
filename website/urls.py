@@ -24,6 +24,9 @@ from core.urls import urlpatterns as core_urls
 from django.conf.urls import include
 from baseuser.urls import ulpatterns as baseuser_urls
 #from django.contrib.auth.views import logout
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext as _
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +35,9 @@ urlpatterns = [
     path('', include('social_django.urls', namespace='social')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
+    path('', include(core_urls)),
+    
+)
     
