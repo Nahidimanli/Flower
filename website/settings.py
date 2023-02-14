@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'baseuser',
-    'social_django'
+    'social_django',
+    'rosetta',
+    'modeltranslation'
 ]
 
 MIDDLEWARE = [
@@ -122,8 +124,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
-LANGUAGE_CODE = 'en'
-ADMIN_LANGUAGE_CODE = "en"
+LANGUAGE_CODE = 'az'
+ADMIN_LANGUAGE_CODE = "az"
 # default language code to az
 ugettext = lambda s: s
 LANGUAGES = (

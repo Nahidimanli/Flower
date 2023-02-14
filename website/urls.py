@@ -25,7 +25,7 @@ from django.conf.urls import include
 from baseuser.urls import ulpatterns as baseuser_urls
 #from django.contrib.auth.views import logout
 from django.conf.urls.i18n import i18n_patterns
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 
 urlpatterns = [
@@ -38,6 +38,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', include(core_urls)),
+    path('rosetta/', include('rosetta.urls')),
     
 )
     

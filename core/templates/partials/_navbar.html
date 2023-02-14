@@ -31,13 +31,7 @@
               <a class="nav-link" href="{% url 'blogs' %}">Blogs {% trans 'Blogs' %}</a>
              
             </li>
-            
-             
-            
-            
-             
-            
-            </ul>
+           </ul>
           </div>
           <div class="quote_btn-container ">
             {% if user.is_authenticated%}
@@ -54,12 +48,35 @@
             <form class="form-inline">
               <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               <a>
-                <a href="{% url 'blogs' %}">
+                <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {{ LANGUAGE_CODE }}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                            {{ language.code }}
+
+                          </a>
+                          <form class="form-inline">
+                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                            <a>
+                        </option>
+                        
+                        {% endfor %}
+                    </select>
+                </form>
+                      
+                    </ul>
+                </form>
               </a>
             </form>
           </div>
         </div>
       </nav>
     </div>
-    
+
   </header>
