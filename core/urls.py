@@ -14,7 +14,8 @@ urlpatterns = [path('', views.home, name='home'),
     path ('blogs', views.blogs, name= 'blogs'),
    
     # path ('blogs', views.BlogListView.as_view(), name= 'blogs'),
-    path ('setting', views.SettingListView.as_view(), name= 'settings')
+    path('setting', views.SettingListView.as_view(), name= 'settings'),
+    path('set_language', views.set_language, name='set_language'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

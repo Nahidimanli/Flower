@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Blog, Setting, Advertisement,About,Gallery
 from core.forms import ContactUsForm
 from django.views.generic import ListView, DetailView
+from django.utils import translation
+from django.conf import settings
 
 # Create your views here.
 
@@ -93,6 +95,15 @@ class SettingListView(ListView):
         data = Setting.objects.all()
         return data
 
+
+
+def set_language(request):
+    lang_code = request.GET.get('language')
+    response = HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    if lang_code in dict(settings.LANGUAGES).keys():
+        print("tfgvbhjnkm")
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+    return response
 
 
 # class BlogListView(ListView):
