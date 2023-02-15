@@ -19,7 +19,7 @@ urlpatterns = [
     path('rosetta/', include('rosetta.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('', include('social_django.urls', namespace='social')),
-    path('core/ api/', include(core_api_urls)),
+    path('core/api/', include(core_api_urls)),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
