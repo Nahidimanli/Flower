@@ -11,12 +11,15 @@ from baseuser.urls import ulpatterns as baseuser_urls
 #from django.contrib.auth.views import logout
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
+from core.api.urls import ulpatterns as core_api_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include(core_urls)),
+    path('rosetta/', include('rosetta.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', include('social_django.urls', namespace='social')),
+    path('core/ api/', include(core_api_urls)),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

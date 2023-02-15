@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.utils import translation
 from django.conf import settings
 
+
 # Create your views here.
 
 def home(request):
