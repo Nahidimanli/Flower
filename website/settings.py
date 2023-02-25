@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rosetta',
     'modeltranslation',
     'rest_framework',
+    'django_celery_beat',
 
 ]
 
@@ -101,8 +102,11 @@ DATABASES = {
         'PORT': 5432,
         'HOST': 'localhost',
 
+    
+
     }
 }
+
 
 
 # Password validationc  c
@@ -191,3 +195,19 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Baku'
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'fargo1979navt@gmail.com'
+EMAIL_HOST_PASSWORD = 'cnlbfhuwbneojvux'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

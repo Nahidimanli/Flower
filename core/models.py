@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
+from django.utils.text import slugify
+from django.urls import reverse
 
 
-# Create your models here.
 
 class AbstractBaseModel(models.Model):
     created_at = models.DateField(auto_now_add=True)
@@ -37,10 +38,10 @@ class Setting(AbstractBaseModel):
 
 class ContactUs(AbstractBaseModel):
     name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
+    email = models.EmailField(max_length=100, unique=True, db_index=True)
     phone = models.CharField(max_length=20)
     message = models.TextField(max_length=100)
-    is_check = models.BooleanField(default=False)
+    is_check = models.BooleanField(default=True)
 
 
     
@@ -70,7 +71,7 @@ class Why(AbstractBaseModel):
 
 class Customer(AbstractBaseModel):
     Customers_say1 = models.CharField(max_length=1000)
-    Customers_say2 = models.CharField(max_length=1000)
+    Customers_say2 = models.CharField(max_length=1000) 
     Customer1 = models.ImageField(upload_to= 'media/Customer')
     Customer2 = models.ImageField(upload_to= 'media/Customer')
 
@@ -83,10 +84,18 @@ class Blog(AbstractBaseModel):
     description = models.TextField()
     image = models.ImageField(upload_to= 'media/blog')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    slug = models.SlugField(max_length=100, editable=False)
+    slug = models.SlugField(max_length=100, null=False, unique=True, db_index=True, editable=False, )
 
     def __str__(self):
        return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug=slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('blogdetails', kwargs={'slug': self.slug})
 
 
 class Advertisement(AbstractBaseModel):
@@ -100,6 +109,35 @@ class Advertisement(AbstractBaseModel):
 
 
     
+
+class Category(AbstractBaseModel):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = ("Category")
+    
+    def get_absolute_url(self):
+        return reverse('categorie', args=[self.name])
+
+
+class Shop(AbstractBaseModel):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    price = models.FloatField()
+    image = models.ImageField(upload_to= 'media/blog')
+    slug = models.SlugField( null=False, blank=True, unique=True, db_index=True ,  editable=False)
+
+    def __str__(self):
+       return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+
 
 
         

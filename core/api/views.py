@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 
 from core.models import Blog
-from core.api.serializers import BlogSerialazer
+from core.api.serializers import BlogSerialazer,ContactUsSerializer,POSTBlogSerialazer
 
 class BlogAPIView(APIView):
     def get(self,request,*args,**kwargs):
@@ -45,14 +45,25 @@ class BlogDetailAPIView(APIView):
             return Response({'error': 'id is not invalid'}, status=status.HTTP_400_BAD_REQUEST)
 
 
+    # def put(self, request, *args, **kwargs):
+    #     blog = Blog.objects.filter(id=kwargs['id']).first()
+    #     if not blog:
+    #         return Response({'error': 'id is not requried'}, status=status.HTTP_400_BAD_REQUEST)
+    #     serialazer = BlogSerialazer(data=request.data, instance=blog, partial=True)
+    #     serialazer.is_valid(raise_exception=True)
+    #     serialazer.save()
+    #     return Response(serialazer.data, status=status.HTTP_200_OK)
+
+
     def put(self, request, *args, **kwargs):
         blog = Blog.objects.filter(id=kwargs['id']).first()
+
         if not blog:
-            return Response({'error': 'id is not requried'}, status=status.HTTP_400_BAD_REQUEST)
-        serialazer = BlogSerialazer(data=request.data, instance=blog, partial=True)
-        serialazer.is_valid(raise_exception=True)
-        serialazer.save()
-        return Response(serialazer.data, status=status.HTTP_200_OK)
+            return Response({'error': 'id is invalid'}, status=status.HTTP_400_BAD_REQUEST)
+        serializer = BlogSerialazer(data=request.data, instance=blog, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
     def delete(self, request, *args, **kwargs):
@@ -61,3 +72,14 @@ class BlogDetailAPIView(APIView):
             return Response({'error': 'id is not requried'}, status=status.HTTP_400_BAD_REQUEST)
         blog.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class ContactUsAPIVew(APIView):
+
+    def post(self, request, *args, **kwargs):
+        serializer = ContactUsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
+

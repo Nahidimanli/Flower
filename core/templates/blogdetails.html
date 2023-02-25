@@ -6,15 +6,17 @@
 
 
 
-<div class="card" style="width: 400px;">
-  <img src="{{ blogs.image.url }}" class="card-img-top" style="width: 400px;height: 400px;">
-  <div class="card-body">
-   <h5 class="card-title">{{ blogs.title }}</h5>
-   <p class="card-text">{{ blogs.description }}</p>
-   <p></p>
+<div class="card" style="width: 60%; margin-left: 20%;margin-right: 20%;margin-top: 100px;margin-bottom: 50px; border: 20px; border-color: black; border-radius: 5px;">
+  <h1 class="card-title" style="text-align: center;">{{ blogs.title }} --- DETAILS</h1>
+  <img src="{{ blogs.image.url }}" class="card-img-top" style="width: 1100px;height: 500px;">
+  <div class="card-body" style="padding-top: 60px;">
+    
+    <p class="card-text">{{ blogs.description }}</p>
+    <p style="color: blue;">{{ blogs.created_at }}</p>
+    <p></p>
   </div>
 </div>
 
 
 
-{% endblock %}
+  {% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Blog, Setting, Advertisement,About,Gallery
+from .models import Blog, Setting, Advertisement, About, Gallery, Shop
 from core.forms import ContactUsForm
 from django.views.generic import ListView, DetailView
 from django.utils import translation
@@ -57,8 +57,8 @@ def my_contact(request):
 #      }
 #      return render(request, 'gallery.html',context)
 
-def blog(request, id):
-    blogs = Blog.objects.get(id=id)
+def blog(request, slug):
+    blogs = Blog.objects.get(slug=slug)
 
     context = {
         'blogs': blogs
@@ -115,3 +115,15 @@ def set_language(request):
 #     def get_queryset(self):
 #         data = Blog.objects.all()
 #         return data
+def shops (request):
+    shops = Shop.objects.all()[:3]
+    count = 3
+    if request.method == 'POST':
+        more = int(request.POST['more-shop'])
+        shops = Shop.objects.all()[:more+3]  
+        count = len(shops)
+    context = {
+        'shops': shops,
+        'count': count,
+    }
+    return render(request, 'shops.html', context)

@@ -309,25 +309,25 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form action="">
+          <form method="post">
             
             <div>
-              <input type="text" placeholder="Name" />
+              <input type="text" id="namelinput" placeholder="Name" />
             </div>
             <div>
-              <input type="email" placeholder="Email" />
+              <input type="email" id="emailinput"  placeholder="Email" />
             </div>
             <div>
-              <input type="text" placeholder="Phone Number" />
+              <input type="text" id="phoneinput" placeholder="Phone Number" />
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="Message" />
+              <input type="text" id="messageinput" class="message-box" placeholder="Message" />
             </div>
-            <div class="d-flex  mt-4 ">
+            <div class="d-flex  mt-4 " id="sendbutton">
               <button>
                 SEND
               </button>
-            </div>
+               </div>
           </form>
         </div>
       </div>
@@ -346,9 +346,47 @@
     </div>
   </div>
 
+  <!-- <script src="{% STcontactus.js"></script> -->
   <!-- end map section -->
-  
+<script>
+  ContactUsLogic = {
+    ContactManager(name,email,phone,message) {
+        fetch('/core/api/contactus/', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+                'name' : name,
+                'email': email,
+                'phone' : phone,
+                'message' : message,
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                contactusModalLongTitle = document.getElementById('contactusModalLongTitle');
+                emailinput.value = '';
+            })
+        }
+    }
 
-  
+    sendbutton = document.getElementById('sendbutton')
+    nameinput = document.getElementById('nameinput')
+    emailinput = document.getElementById('emailinput')
+    phoneinput = document.getElementById('phoneinput')
+    messageinput = document.getElementById('messageinput')
 
- {% endblock %}
+    sendbutton.onclick = function (e) {
+        e.preventDefault();
+        email = emailinput.value,
+        ContactUsLogic.ContactManager(name,email,phone,message);
+    }
+      
+<script>
+  
+  
+  
+  {% endblock %}

@@ -4,17 +4,64 @@
 
 {% block content %}
 
-{% for i in blogs %}
 
-<div class="card" style="width: 18rem;">
-  <img src="{{ i.image.url }}" class="card-img-top">
-  <div class="card-body">
-   <h5 class="card-title"><a href="blogs/{{i.id}}">{{ i.title }}
-  </a></h5>
-   <p class="card-text">{{ i.description }}</p>
-   <p></p>
+
+
+<div class="text-center my-5">
+  <h1>Bootstrap 5 - Blog Posts Grid Layout</h1>
+  <hr />
+</div>
+<div class="container">
+
+  <div class="row">
+
+    {% for i in blogs %}
+    <div class="col-lg-4 col-md-6 col-sm-12">
+
+      <div class="card mb-5 shadow-sm">
+
+        <img src="{{ i.image.url }}" class="img-fluid" />
+
+        <div class="card-body">
+          <div class="card-title">
+            <h2><a href="blogs/{{i.slug}}">{{ i.title }}</a></h2>
+          </div>
+          <div class="card-text">
+            <p>
+              
+            </p>
+          </div>
+          <a href="blogs/{{i.slug}}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
   </div>
 </div>
- {% endfor %}
+
 
 {% endblock %}
+
+<!-- let blog = document.getElementById('blog')
+    fetch('/core/api/blogs/')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      for(let i in data) {
+        blog.innerHTML += `
+
+      <div class="card" style="width: 18rem;">
+  <img src="${dta[i].image}" class="card-img-top">
+  <div class="card-body">
+   <h5 class="card-title"><a href="${data[i].url}">${data[i].title}
+  </a></h5>
+   <p class="card-text">${data[i].description}</p>
+   <p>${data[i].author['username']}</p>
+  </div>
+</div>
+        
+        `
+      }
+      }) -->

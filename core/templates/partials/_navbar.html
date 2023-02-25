@@ -27,6 +27,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'blogs' %}"> {% trans "Blogs" %}</a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shops' %}"> {% trans "Shops" %}</a>
+                  </li>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'gallerys' %}">{% trans "Gallerys" %}</a>
@@ -51,8 +54,9 @@
             <a href="">
               <img src="{% static 'images/cart.png' %}" alt="">
             </a>
-            
-              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            <a href=""
+               < button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            </a>
               
               <select name="forma" onchange="location = this.value;">
                 <option value="/">Language</option>
