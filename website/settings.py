@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'modeltranslation',
     'rest_framework',
     'django_celery_beat',
+    'embed_video',
 
 ]
 

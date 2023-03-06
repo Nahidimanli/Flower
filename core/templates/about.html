@@ -5,35 +5,28 @@
 
 
   <!-- about section -->
-  <section class="about_section ">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-xl-7">
+  <div class="text-center my-5">
+    <div class="p-3 mb-2 bg-warning text-dark">
+      <h2> About Flowers </h2>
+    </div>
+    {% for i in abouts %}
+    
           <div class="img-box">
-            <img src="{% static 'images/about-img.png' %}" alt="" />
+            <img src="{{ i.flow10.url }}" alt="" />
           </div>
-        </div>
-        <div class="col-md-5 col-xl-5">
-          <div class="detail_box">
-            <div class="heading_container justify-content-end">
-              <h2>
-                About Flowers
-              </h2>
+            <div class="text-center"><span class="border-right"></span>
+              <p>
+                {{i.about_flowers}}
+              </p>
             </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text Lorem Ipsum is simply dummy text of the printing
-              and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since ever since
-              ever since
-            </p>
+           
           </div>
         </div>
 
       </div>
+      {% endfor %}
     </div>
   </section>
   <!-- end about section -->
   {% endblock %}
- 
 

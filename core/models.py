@@ -4,6 +4,18 @@ User = get_user_model()
 from django.utils.text import slugify
 from django.urls import reverse
 
+from  embed_video.fields  import  EmbedVideoField
+#Create your models here.
+class  tutorial(models.Model):
+	tutorial_Title = models.CharField(max_length=200)
+	tutorial_Body = models.TextField()
+	tutorial_Video = EmbedVideoField()
+
+	class  Meta:
+		verbose_name_plural = "Tutorial"
+
+	def  __str__(self):
+		return  str(self.tutorial_Title) if  self.tutorial_Title  else  " "
 
 
 class AbstractBaseModel(models.Model):
@@ -29,7 +41,7 @@ class Setting(AbstractBaseModel):
     logo = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    insta1 = models.ImageField(upload_to= 'media/ Setting')
+    email = models.CharField(max_length=70)
    
 
     def __str__(self):
@@ -110,24 +122,27 @@ class Advertisement(AbstractBaseModel):
 
     
 
-class Category(AbstractBaseModel):
+class Catagory(AbstractBaseModel):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
     
     class Meta:
-        verbose_name_plural = ("Category")
+        verbose_name_plural = ("Catagory")
     
     def get_absolute_url(self):
-        return reverse('categorie', args=[self.name])
+        return reverse('catagory', args=[self.name])
 
 
 class Shop(AbstractBaseModel):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    price = models.FloatField()
+    price = models.IntegerField()
+    body = models.CharField(max_length=70)
+    catagory = models.ForeignKey(Catagory, related_name="names", on_delete=models.CASCADE)
     image = models.ImageField(upload_to= 'media/blog')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField( null=False, blank=True, unique=True, db_index=True ,  editable=False)
 
     def __str__(self):
@@ -136,7 +151,6 @@ class Shop(AbstractBaseModel):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-
 
 
 

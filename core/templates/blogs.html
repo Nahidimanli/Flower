@@ -8,7 +8,7 @@
 
 
 <div class="text-center my-5">
-  <h1>Bootstrap 5 - Blog Posts Grid Layout</h1>
+  <h1>Blogs</h1>
   <hr />
 </div>
 <div class="container">
@@ -16,15 +16,15 @@
   <div class="row">
 
     {% for i in blogs %}
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-4 col-md-6 col-sm-12" >
 
-      <div class="card mb-5 shadow-sm">
+      <div class="card mb-5 shadow-sm" style="height: 400px;">
 
         <img src="{{ i.image.url }}" class="img-fluid" />
 
-        <div class="card-body">
-          <div class="card-title">
-            <h2><a href="blogs/{{i.slug}}">{{ i.title }}</a></h2>
+        <div class="card-body" style="height: 500px;">
+          <div class="card-title" style="height: 130px;">
+            <h2 style="color: black;">{{ i.title }}</h2>
           </div>
           <div class="card-text">
             <p>

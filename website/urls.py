@@ -2,7 +2,7 @@
 from baseuser.views import register,login
 from django.contrib import admin
 from django.urls import path
-from core.views import home, GalleryListView
+from core.views import home
 from django.conf import settings
 from django.conf.urls.static import static
 from core.urls import urlpatterns as core_urls

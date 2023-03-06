@@ -1,392 +1,384 @@
- {% extends 'base.html' %}
- {% load static custom_tags %}
+{% extends 'base.html' %}
+{% load static custom_tags %}
 
 
- {% block content %}
-    <!-- slider section -->
-    <section class=" slider_section position-relative">
-      <div class="slider_number-container ">
-        <div class="number-box">
-          <span>
-            01
-          </span>
-          <hr>
-          <span>
-            02
-          </span>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="col-lg-6 col-md-8">
-                  <div class="detail_box">
-                    <h2>
-                      Welcome
-                    </h2>
-                    <h1>
-                      Flowers shop
-                    </h1>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+{% block content %}
+<!-- slider section -->
+<section class=" slider_section position-relative">
+  <div class="slider_number-container ">
+    <div class="number-box">
 
-                   </p>
-                    <div>
-                      <a href="">Buy Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="col-lg-6 col-md-8">
-                  <div class="detail_box">
-                    <h2>
-                      Welcome
-                    </h2>
-                    <h1>
-                      Ag ciceyim
-                    </h1>
-                    <p>
-                      Xoşbəxt anların ömür boyu xatırlanması üçün tərtib və dizayn işlərini peşəkarlara həvalə edin.
-                    </p>
-                    <div>
-                      <a href="">Buy Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="col-lg-6 col-md-8">
-                  <div class="detail_box">
-                    <h2>
-                      Welcome
-                    </h2>
-                    <h1>
-                      Ag ciceyim
-                    </h1>
-                    <p>
-                      Üstü bəzək - altı təzək.
-                    </p>
-                    <div>
-                      <a href="">Buy Now</a>
-                    </div>
-                  </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="col-lg-6 col-md-8">
+              <div class="detail_box">
+                <h2>
+                  Welcome
+                </h2>
+                <h1>
+                  Flowers shop
+                </h1>
+                <p>
+                  Xoşbəxt anların ömür boyu xatırlanması üçün tərtib və dizayn işlərini peşəkarlara həvalə edin.
+                </p>
+                <div>
+                  <a href="{% url 'shops' %}">Buy Now</a>
                 </div>
               </div>
             </div>
-            <div class="carousel_btn-container">
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="sr-only">Next</span>
-              </a>
+          </div>
+          <div class="carousel-item">
+            <div class="col-lg-6 col-md-8">
+              <div class="detail_box">
+                <h2>
+                  Welcome
+                </h2>
+                <h1>
+                  Our Gallery
+                </h1>
+                <p>
+                  Xoşbəxt anların ömür boyu xatırlanması üçün tərtib və dizayn işlərini peşəkarlara həvalə edin.
+                </p>
+                <div>
+                  <a href="{% url 'gallerys' %}">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="col-lg-6 col-md-8">
+              <div class="detail_box">
+                <h2>
+                  Welcome
+                </h2>
+                <h1>
+                  Blogs
+                </h1>
+                <p>
+                  Xoşbəxt anların ömür boyu xatırlanması üçün tərtib və dizayn işlərini peşəkarlara həvalə edin.                </p>
+                <div>
+                  <a href="{% url 'blogs' %}">Read</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="carousel_btn-container">
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
-       
-       {% get_advertisement_count as adv_count %}
-       {% for i in advars %}
-       {% get_advertisement_all as advars %}
-       <div class="card" style="width: 18rem;">
-        <img src="{{ i.image.url }}" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{ i.title }}</h5>
-          <p class="card-text">{{ i.description }}</p>
-          <p>{{adv_count}}</p>
-       </div>
-        {% endfor %}
-      
-
-    </section>
-    <!-- end slider section -->
+    </div>
   </div>
 
-  <!-- about section -->
-  <section class="about_section ">
-    <div class="section_number">
-      01
+  {% get_advertisement_count as adv_count %}
+  {% for i in advars %}
+  {% get_advertisement_all as advars %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ i.image.url }}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ i.title }}</h5>
+      <p class="card-text">{{ i.description }}</p>
+      <p>{{adv_count}}</p>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-xl-7">
-          <div class="img-box">
-            <img src="{% static 'images/about-img.png' %}" alt="" />
-          </div>
-        </div>
-        <div class="col-md-5 col-xl-5">
-          <div class="detail_box">
-            <div class="heading_container justify-content-end">
-              <h2>
-                About Flowers
-              </h2>
-            </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text Lorem Ipsum is simply dummy text of the printing
-              and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since ever since
-              ever since
-            </p>
-          </div>
-        </div>
+    {% endfor %}
 
-      </div>
-    </div>
-  </section>
-  <!-- end about section -->
 
-  <!-- why section -->
-  <section class="why_section layout_padding">
-    <div class="section_number">
-      02
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h2>
-            Why Choose Us
-          </h2>
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-            Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
-            Hampden-Sydney College in Virginia, looked up one of the more obscure Latin wordsContrary to popular belief,
-            Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-            looked up one of the more obscure Latin words
-          </p>
-          <div>
-            <a href="">
-              Read More
-            </a>
-          </div>
+</section>
+<!-- end slider section -->
+</div>
+
+<!-- about section -->
+<section class="about_section ">
+   <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-xl-7">
+        <div class="img-box">
+          <img src="{% static 'images/about-img.png' %}" alt="" />
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- end why section -->
-
-  <!-- gallery section -->
-  <section class="gallery_section layout_padding">
-    <div class="section_number">
-      03
-    </div>
-    <div class="heading_container justify-content-center">
-      <h2>
-        Our Gallery
-      </h2>
-    </div>
-    <div class="container">
-      <div class="img_container">
-        <div class="box-1">
-          <div class="box-1-container">
-            <div class="b-1">
-              <div class="img-box">
-                <img src="{% static 'images/g-1.jpg' %}" alt="">
-              </div>
-              <div class="img-box">
-                <img src="{% static 'images/g-4.jpg' %}" alt="">
-              </div>
-            </div>
-            <div class="b-2">
-              <div class="img-box">
-                <img src="{% static 'images/g-2.jpg' %}" alt="">
-              </div>
-              <div class="img-box">
-                <img src="{% static 'images/g-5.jpg' %}" alt="">
-              </div>
-            </div>
+      <div class="col-md-5 col-xl-5">
+        <div class="detail_box">
+          <div class="heading_container justify-content-end">
+            <h2>
+              About Flowers
+            </h2>
           </div>
-          <div class="b-3">
-            <div class="img-box">
-              <img src="{% static 'images/g-7.jpg' %}" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="box-2">
-          <div class="img-box">
-            <img src="{% static 'images/g-3.jpg' %}" alt="">
-          </div>
-          <div class="img-box">
-            <img src="{% static 'images/g-6.jpg' %}" alt="">
-          </div>
-          <div class="img-box flex-grow-1">
-            <img src="{% static 'images/g-8.jpg' %}" alt="">
-          </div>
+          <span style="color: rgb(255, 255, 255);">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since ever since
+            ever since
+          </span>
         </div>
       </div>
-  </section>
-  <!-- end gallery section -->
 
-  <!-- client section -->
+    </div>
+    </div>
+</section>
+<!-- end about section -->
 
-  <section class="client_section layout_padding">
-    <div class="container">
-      <div class="heading_container justify-content-center">
+<!-- why section -->
+<section class="why_section layout_padding">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
         <h2>
-          What Our Customers Say
-        </h2>
-        <div class="section_number">
-          04
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="client_box">
-            <div class="detail_box">
-              <div class="img_box">
-                <img src="{% static 'images/client-1.png' %}">
-              </div>
-              <h5>
-                Azer Mammedov
-              </h5>
-              <p>Sen ol bomba gulleri var. Mamoy klyanus</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="client_box">
-            <div class="detail_box">
-              <div class="img_box">
-                <img src="{% static 'images/client-2.png' %}">
-              </div>
-              <h5>
-                Jalal Sabitov
-              </h5>
-              <p>Gizin xosuna gelmedi,cirpdi buketi basima. Basiviza deysin sizin guller.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- end client section -->
-
-  <!-- arrange section -->
-
-  <section class="arrange_section">
-    <div class="container">
-      <div class="detail_box">
-        <h2>
-          Our Wonderful Arrangements
+          Why Choose Us
         </h2>
         <p>
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
-          literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-          College in Virginia, looked up one of the more obscure Latin words
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+          Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure Latin wordsContrary to popular belief,
+          Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,
+          making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
+          looked up one of the more obscure Latin words
         </p>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- end arrange section -->
-
-  <!-- contact section -->
-
-  <section class="contact_section layout_padding">
-    <div class="section_number">
-      05
-    </div>
-    <div class="container ">
-      <div class="heading_container justify-content-center">
-        <h2 class="">
-          Contact Us
-        </h2>
-      </div>
-
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <form method="post">
-            
-            <div>
-              <input type="text" id="namelinput" placeholder="Name" />
-            </div>
-            <div>
-              <input type="email" id="emailinput"  placeholder="Email" />
-            </div>
-            <div>
-              <input type="text" id="phoneinput" placeholder="Phone Number" />
-            </div>
-            <div>
-              <input type="text" id="messageinput" class="message-box" placeholder="Message" />
-            </div>
-            <div class="d-flex  mt-4 " id="sendbutton">
-              <button>
-                SEND
-              </button>
-               </div>
-          </form>
+        <div>
+          <a href="">
+            Read More
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- end contact section -->
+<!-- end why section -->
 
-  <!-- map section -->
+<!-- gallery section -->
+<section class="gallery_section layout_padding">
 
-  <div class="map_section">
-    <div class="map_container">
-      <div class="map">
-        <div id="googleMap"></div>
+  <div class="heading_container justify-content-center">
+    <h2>
+      Our Gallery
+    </h2>
+  </div>
+  <div class="container">
+    <div class="img_container">
+      <div class="box-1">
+        <div class="box-1-container">
+          <div class="b-1">
+            <div class="img-box">
+              <img src="{% static 'images/g-1.jpg' %}" alt="">
+            </div>
+            <div class="img-box">
+              <img src="{% static 'images/g-4.jpg' %}" alt="">
+            </div>
+          </div>
+          <div class="b-2">
+            <div class="img-box">
+              <img src="{% static 'images/g-2.jpg' %}" alt="">
+            </div>
+            <div class="img-box">
+              <img src="{% static 'images/g-5.jpg' %}" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="b-3">
+          <div class="img-box">
+            <img src="{% static 'images/g-7.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="box-2">
+        <div class="img-box">
+          <img src="{% static 'images/g-3.jpg' %}" alt="">
+        </div>
+        <div class="img-box">
+          <img src="{% static 'images/g-6.jpg' %}" alt="">
+        </div>
+        <div class="img-box flex-grow-1">
+          <img src="{% static 'images/g-8.jpg' %}" alt="">
+        </div>
+      </div>
+    </div>
+</section>
+<!-- end gallery section -->
+
+<!-- client section -->
+
+<section class="client_section layout_padding">
+  <div class="container">
+    <div class="heading_container justify-content-center">
+      <h2>
+        Our Products
+      </h2>
+    </div>
+    <div class="row">
+
+      {% for i in shops %}
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="card" style="height: 420px;">
+          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+            <img src="{{ i.image.url }}" class="w-100" />
+            <a href="#!">
+              <div class="mask">
+
+              </div>
+              <div class="hover-overlay">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <a href="shops/{{i.slug}}" class="text-reset">
+              <h5 class="card-title mb-3">{{ i.title}}</h5>
+            </a>
+            <a href="" class="text-reset">
+
+            </a>
+            <h6 class="mb-3">${{i.price}}</h6>
+          </div>
+          
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+<!-- end client section -->
+<div class="container" style="padding-top: 40px;"  >
+  <div class="heading_container justify-content-center" style="padding-bottom: 70px;"  >
+    <h2>
+      Our Blogs
+    </h2>
+  </div>
+  <div class="row">
+
+    {% for i in blogs %}
+    <div class="col-lg-4 col-md-6 col-sm-12" >
+
+      <div class="card mb-5 shadow-sm" style="height: 400px;">
+
+        <img src="{{ i.image.url }}" class="img-fluid" />
+
+        <div class="card-body" style="height: 500px;">
+          <div class="card-title" style="height: 130px;">
+            <h2 style="color: black;">{{ i.title }}</h2>
+          </div>
+          <div class="card-text">
+            <p>
+              
+            </p>
+          </div>
+          <a href="blogs/{{i.slug}}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<!-- contact section -->
+
+
+<!-- 
+
+<section class="contact_section layout_padding">
+
+  <div class="container ">
+    <div class="heading_container justify-content-center">
+      <h2 class="">
+        Contact Us
+      </h2>
+    </div>
+
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <form method="post">
+
+          <div>
+            <input type="text" id="namelinput" placeholder="Name" />
+          </div>
+          <div>
+            <input type="email" id="emailinput" placeholder="Email" />
+          </div>
+          <div>
+            <input type="text" id="phoneinput" placeholder="Phone Number" />
+          </div>
+          <div>
+            <input type="text" id="messageinput" class="message-box" placeholder="Message" />
+          </div>
+          <div class="d-flex  mt-4 " id="sendbutton">
+            <button>
+              SEND
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</section> -->
 
-  <!-- <script src="{% STcontactus.js"></script> -->
-  <!-- end map section -->
+<!-- end contact section -->
+
+<!-- map section -->
+
+<iframe width="1920" height="474" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas"
+  src="https://maps.google.com/maps?width=1920&amp;height=474&amp;hl=en&amp;q=Baku%20Baku+(Test)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a
+  href='https://maps-generator.com/'></a>
+
+{% endblock %}
+
+<!-- <script src="{% STcontactus.js"></script> -->
+<!-- end map section -->
 <script>
   ContactUsLogic = {
-    ContactManager(name,email,phone,message) {
-        fetch('/core/api/contactus/', {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}'
-            },
-            body: JSON.stringify({
-                'name' : name,
-                'email': email,
-                'phone' : phone,
-                'message' : message,
-            })
+    ContactManager(name, email, phone, message) {
+      fetch('/core/api/contactus/', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+          'name': name,
+          'email': email,
+          'phone': phone,
+          'message': message,
         })
-            .then(response => response.json())
-            .then(data => {
-                contactusModalLongTitle = document.getElementById('contactusModalLongTitle');
-                emailinput.value = '';
-            })
-        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          contactusModalLongTitle = document.getElementById('contactusModalLongTitle');
+          emailinput.value = '';
+        })
     }
+  }
 
-    sendbutton = document.getElementById('sendbutton')
-    nameinput = document.getElementById('nameinput')
-    emailinput = document.getElementById('emailinput')
-    phoneinput = document.getElementById('phoneinput')
-    messageinput = document.getElementById('messageinput')
+  sendbutton = document.getElementById('sendbutton')
+  nameinput = document.getElementById('nameinput')
+  emailinput = document.getElementById('emailinput')
+  phoneinput = document.getElementById('phoneinput')
+  messageinput = document.getElementById('messageinput')
 
-    sendbutton.onclick = function (e) {
-        e.preventDefault();
-        email = emailinput.value,
-        ContactUsLogic.ContactManager(name,email,phone,message);
-    }
-      
-<script>
-  
-  
-  
-  {% endblock %}
+  sendbutton.onclick = function (e) {
+    e.preventDefault();
+    email = emailinput.value,
+      ContactUsLogic.ContactManager(name, email, phone, message);
+  }
+
+
+</script>

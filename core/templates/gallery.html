@@ -1,38 +1,24 @@
  {% extends 'base.html' %}
  {% load static custom_tags %}
 
+ {% load embed_video_tags %}
+
 
  {% block content %}
 
 
+ <div  class="col-md-8 offset-md-2">
+  <h1></h1>
+  <hr>
+  {% for t in Tut %}
+  <h2><a  href="{% url 'gallery_detail' t.pk %}">{{ t.tutorial_Title}}</a></h2>
+  <p>{{ t.tutorial_Body | slice:':400' }}...</p>
+  {% video t.tutorial_Video 'large' %}
+  {% endfor %}
+</div>
+ 
+  
 
-
-  <!-- gallery section -->
-  <section class="gallery_section layout_padding">
-    <div class="section_number">Fior
-   </div>
-    
-    <div class="heading_container justify-content-center">
-      <h2>
-        Our Gallery
-      </div>
-      <div class="container">
-        <div class="img_container">
-          <div class="box-1">
-           
-              
-            {% for gallery in gallerys %}
-            <div class="b-1">
-              <div class="img-box">
-                <img src="{{ gallery.flow1.url }}" alt="">
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-      
-  </section>
   <!-- end gallery section -->
 
   <!-- client section -->
